@@ -52,12 +52,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-estudiante.php">
+                            <a href="./inicio-dispositivo.php">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-estudiante.php" class="nav-link"> Acceso ITO </a>
+                            <a href="./inicio-dispositivo.php" class="nav-link"> Acceso ITO </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">

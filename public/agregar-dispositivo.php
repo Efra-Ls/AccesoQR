@@ -52,12 +52,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-estudiante.php">
+                            <a href="./mostrar-registros.php">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-estudiante.php" class="nav-link">Acceso ITO</a>
+                            <a href="./mostrar-registros.php" class="nav-link">Acceso ITO</a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -117,6 +117,48 @@
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             
+
+        <br/>
+        
+        <div id="basic" class="col-lg-12 layout-spacing">
+                    <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Informacion del dispositivo</h4>
+                                        </div>                 
+                                    </div>
+                            </div>
+                                <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12 ">
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <p>Clave dispositivo</p>
+                                                    <label for="t-cdi" class="visually-hidden">Clave dispositivo</label>
+                                                    <input id="t-cdi" type="text" name="cdi" placeholder="Clave del dispositivo" class="form-control" required maxlength="9">
+                                                    <br/>
+                                                    <p>Descripción</p>
+                                                    <label for="t-des" class="visually-hidden">Descripción</label>
+                                                    <input id="t-des" type="text" name="des" placeholder="Descripción" class="form-control" required  maxlength="80">
+                                                    <br/>
+                                                    <p>N. entrada</p>
+                                                    <label for="t-nen" class="visually-hidden">N. entrada</label>
+                                                    <input id="t-nen" type="number" name="nen" placeholder="N. entrada" class="form-control" required maxlength="11"> 
+                                                    <br/>
+                                                    <input type="submit" name="regis" class="mt-4 btn btn-primary">                               
+                                                <div>                                                                                       </form>     
+                                            </div>                                               
+                                                                 
+                                        </div>
+
+                                </div>
+
+                            </div>
+                        </div> 
+        <?php 
+        include("../php/registrar-dispositivo.php");
+        ?>  
 
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">

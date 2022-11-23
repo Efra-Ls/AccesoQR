@@ -52,12 +52,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-estudiante.php">
+                            <a href="./mostrar-registros.php">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-estudiante.php" class="nav-link"> Acceso ITO </a>
+                            <a href="./mostrar-registros.php" class="nav-link"> Acceso ITO </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -107,6 +107,7 @@
             
                     
                     
+                    
                 </ul>
                 
             </nav>
@@ -117,7 +118,66 @@
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             
+        
 
+
+        <div class="col-12">
+            <br/>
+                            <h3>Registros de entradas y salidas</h3>
+                        </div>
+                        <div class="col-md-12">
+                        <div id="tableSimple" class="col-lg-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Tabla</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+
+                                <?php 
+                                include("../php/con_db.php");
+                                $consulta="SELECT * FROM registros,dispositivo WHERE registros."."dispositivo=dispositivo.id_dispositivo";
+                                $resultado = mysqli_query($conex,$consulta);                                
+                                 ?>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" scope="col">MATRICULA</th>
+                                                    <th class="text-center" scope="col">FECHA</th>
+                                                    <th class="text-center" scope="col">HORA</th>
+                                                    <th class="text-center" scope="col">N.PUERTA</th>
+                                                    <th class="text-center" scope="col">TIPO DE REGISTRO</th>
+                                                </tr>
+                                                <tr aria-hidden="true" class="mt-3 d-block table-row-hidden"></tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($resultado as $resultad) { ?>
+                                                <tr>
+                                                    <td class="text-center"><?=$resultad['matricula']?></td>
+                                                    <td class="text-center"><?=$resultad['fecha']?></td>
+                                                    <td class="text-center"><?=$resultad['hora']?></td>
+                                                    <td class="text-center"><?=$resultad['numero_posicion']?></td>
+                                                    <td class="text-center"><?=$resultad['tipo_registro']?></td>
+                                                </tr>
+                                                <?php } ?>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+
+        
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
                 <div class="footer-section f-section-1">

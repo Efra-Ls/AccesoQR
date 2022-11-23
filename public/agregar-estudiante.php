@@ -52,12 +52,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-estudiante.php">
+                            <a href="./mostrar-registros.php">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-estudiante.php" class="nav-link"> Acceso ITO </a>
+                            <a href="./mostrar-registros.php" class="nav-link"> Acceso ITO </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -117,7 +117,80 @@
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             
+    	<br/>
+        
+        <div id="basic" class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Informacion del estudiante</h4>
+                                        </div>                 
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
 
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12 ">
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <p>Matricula</p>
+                                                    <label for="t-mat" class="visually-hidden">Matricula</label>
+                                                    <input id="t-mat" type="text" name="mat" placeholder="Matricula" class="form-control" required minlength="8" maxlength="10">
+                                                    <br/>
+                                                    <p>Nombre</p>
+                                                    <label for="t-nom" class="visually-hidden">Nombre</label>
+                                                    <input id="t-nom" type="text" name="nom" placeholder="Nombre" class="form-control" required  maxlength="30">
+                                                    <br/>
+                                                    <p>Apellido paterno</p>
+                                                    <label for="t-app" class="visually-hidden">Apellido paterno</label>
+                                                    <input id="t-app" type="text" name="app" placeholder="Apellido paterno" class="form-control" required maxlength="30">
+                                                    <br/>
+                                                    <p>Apellido materno</p>
+                                                    <label for="t-apm" class="visually-hidden">Apellido materno</label>
+                                                    <input id="t-apm" type="text" name="apm" placeholder="Apellido materno" class="form-control" required maxlength="30">
+
+                                                    <p>Carrera</p>
+                                                    <label for="t-car" class="visually-hidden">Apellido materno</label>
+                                                    <input id="t-car" type="text" name="car" placeholder="Carrera" class="form-control" required maxlength="40">
+
+                                                   
+                                                </div>
+                                                
+                                           
+                                                </div>   
+                                                <div class="col-lg-6 col-12 ">
+                                            
+                                                <div class="form-group">
+                                                    <p>Correo</p>
+                                                    <label for="t-cor" class="visually-hidden">Correo</label>
+                                                    <input id="t-cor" type="email" name="cor" placeholder="Correo" class="form-control" required maxlength="100">
+                                                    <br/>
+                                                    <p>Numero telefonico</p>
+                                                    <label for="t-ntp" class="visually-hidden">Numero telefonico</label>
+                                                    <input id="t-ntp" type="text" name="ntp" placeholder="Numero telefonico" class="form-control" required maxlength="12">
+                                                    <br/>
+                                                    <p>Numero telefonico de un familiar</p>
+                                                    <label for="t-ntf" class="visually-hidden">Numero telefonico de un familiar</label>
+                                                    <input id="t-ntf" type="text" name="ntf" placeholder="Telefono de un familiar" class="form-control" required maxlength="12">
+                                                    <br/>
+                                                    <p>Domicilio</p>
+                                                    <label for="t-dom" class="visually-hidden">Domicilio</label>
+                                                    <input id="t-dom" type="text" name="dom" placeholder="Domicilio" class="form-control" required maxlength="150">
+
+                                                    <input type="submit" name="regis" class="mt-4 btn btn-primary">
+                                                </div>
+                                            </form> 
+                                        </div>   
+                                                                 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+        <?php 
+        include("../php/registrar-estudiante.php");
+        ?>     
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
                 <div class="footer-section f-section-1">
