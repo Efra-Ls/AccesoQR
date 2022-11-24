@@ -52,12 +52,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-estudiante.php">
+                            <a href="./inicio-estudiante.php?usuario=<?php echo $usuario?>">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-estudiante.php" class="nav-link">Acceso ITO </a>
+                            <a href="./inicio-estudiante.php?usuario=<?php echo $usuario?>" class="nav-link">Acceso ITO </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -70,7 +70,7 @@
                 <ul class="list-unstyled menu-categories" id="accordionExample">                    
 
                     <li class="menu">
-                        <a href="./inicio-estudiante.php" aria-expanded="false" class="dropdown-toggle">
+                        <a href="./inicio-estudiante.php?usuario=<?php echo $usuario?>" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-plus"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
                                 <span>Inicio</span>
@@ -79,7 +79,7 @@
                     </li>
 
                     <li class="menu active">
-                        <a href="./actualizar-estudiante.php" aria-expanded="false" class="dropdown-toggle">
+                        <a href="./actualizar-estudiante.php?usuario=<?php echo $usuario?>" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-plus"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
                                 <span>Actualizar informacion</span>
@@ -102,7 +102,8 @@
                     <h2 class="m-2 card-title">Actualización de datos</h2>
                     <?php 
                         include ("../php/con_db.php");
-                        $consulta = "SELECT * FROM `estudiante` WHERE `id_usuario`='01';";
+                        $usuario=$_GET['usuario'];  
+                        $consulta = "SELECT * FROM estudiante WHERE id_usuario='$usuario';";
                         $resultado = mysqli_query($conex,$consulta);
                         $rows = mysqli_fetch_assoc($resultado);
                     ?>

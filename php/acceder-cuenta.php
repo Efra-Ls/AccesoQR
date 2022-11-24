@@ -10,7 +10,7 @@ include("con_db.php");
 			foreach($resultado as $resultad) {
 			
 				if($resultad['nombre_usuario']==$usuario && $resultad['contrasenia']==$contrasenia && $resultad['tipo']=='estudiante'){
-					header("location: ../public/inicio-estudiante.php");
+					header("location: ../public/inicio-estudiante.php?usuario=$usuario");
 					return;
 				}else if($resultad['nombre_usuario']==$usuario && $resultad['contrasenia']==$contrasenia && $resultad['tipo']=='dispositivo'){
 					header("location: ../public/inicio-dispositivo.php");
