@@ -100,7 +100,7 @@
                         <a href="./mostrar-usuarios.php" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-plus"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
-                                <span>Usuarios</span>
+                                <span>Usuario</span>
                             </div>
                         </a>
                     </li>
@@ -117,6 +117,40 @@
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             
+
+        <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12 ">
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <p>Nombre de usuario</p>
+                                                    <label for="t-nus" class="visually-hidden">Nombre de usuario</label>
+                                                    <input id="t-nus" type="text" name="nus"  class="form-control" required maxlength="9" placeholder="Nombre de usuario">
+                                                    <br/>
+                                                    <p>Contraseña actual</p>
+                                                    <label for="t-cac" class="visually-hidden">Contraseña actual</label>
+                                                    <input id="t-cac" type="password" name="cac" placeholder="Contraseña actual" class="form-control" required  maxlength="15">
+                                                    <br/>
+                                                    <p>Contraseña nueva</p>
+                                                    <label for="t-cnu" class="visually-hidden">Contraseña nueva</label>
+                                                    <input id="t-cnu" type="password" name="cnu" placeholder="Contraseña nueva" class="form-control" required  maxlength="15">
+                                                    <br/>
+                                                    <p>Confirmar contraseña</p>
+                                                    <label for="t-ccf" class="visually-hidden">Confirmar contraseña</label>
+                                                    <input id="t-ccf" type="password" name="ccf" placeholder="Confirmar Contraseña" class="form-control" required  maxlength="15">
+                                                    <br/>
+                                                    
+                                                    <br/>
+                                                    <input type="submit" name="regis" class="mt-4 btn btn-primary">                               
+                                                <div>                                                                                       </form>     
+                                            </div>                                               
+                                                                 
+                                        </div>
+                                        <?php 
+        include("../php/chg-contr-avanzado.php");
+        ?> 
+                                </div>
+                                
 
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
