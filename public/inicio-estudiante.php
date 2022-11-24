@@ -93,8 +93,31 @@
         
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            
-
+                <div class="row justify-content-center m-3">
+                    <div class="card col-10 col-md-11 col-lg-10">
+                        <?php
+                            include ("../php/con_db.php");
+                            $consulta = "SELECT * FROM `estudiante` WHERE `id_usuario`='01';";
+                            $resultado = mysqli_query($conex,$consulta);
+                            $rows = mysqli_fetch_assoc($resultado);
+                        ?>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7 col-lg-6">
+                                <h2 class="m-2 card-title">CREDENCIAL DIGITAL</h2>
+                                <p class="m-2 card-text">Matricula: <span><?php echo $rows["matricula"];?></span></p>
+                                <p class="m-2 card-text">Nombre: <span><?php echo $rows["nombre"];?></span></h6>
+                                <p class="m-2 card-text">Apellidos: <?php echo $rows["apellido1"] . " " . $rows["apellido2"]?></p>
+                                <p class="m-2 card-text">Carrera: <span><?php echo $rows["carrera"];?></span></p>
+                                <p class="m-2 card-text">Telefono: <span><?php echo $rows["numero_telefonico"];?></span></p>
+                                <p class="m-2 card-text">Correo: <span><?php echo $rows["correo"];?></span></p>
+                            </div>
+                            <div class="col-12 col-md-5 col-lg-6">
+                                <img class="rounded" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $rows["matricula"]?>&choe=UTF-8" title="NoControlQR" width="100%"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
                 <div class="footer-section f-section-1">
