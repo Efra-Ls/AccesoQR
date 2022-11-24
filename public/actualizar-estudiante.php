@@ -100,38 +100,44 @@
             <div class="row justify-content-center m-3">
                 <div class="card col-12 col-md-11 col-lg-11">
                     <h2 class="m-2 card-title">Actualización de datos</h2>
+                    <?php 
+                        include ("../php/con_db.php");
+                        $consulta = "SELECT * FROM `estudiante` WHERE `id_usuario`='01';";
+                        $resultado = mysqli_query($conex,$consulta);
+                        $rows = mysqli_fetch_assoc($resultado);
+                    ?>
                     <form action="../php/actualizar-estudiante.php" method="post">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-nombre">Nombre</span>
-                            <input type="text" class="form-control" id="input-nombre" value="Angel">
+                            <input type="text" class="form-control" id="input-nombre" value="<?php echo $rows["nombre"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-apellido1">Apellido Paterno</span>
-                            <input type="text" class="form-control" id="input-apellido1" value="Rodriguez">
+                            <input type="text" class="form-control" id="input-apellido1" value="<?php echo $rows["apellido1"]?>">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="input-apellido2">Carrera</span>
-                            <input type="text" class="form-control" id="input-apellido2" value="Venegas">
+                            <span class="input-group-text" id="input-apellido2">Apellido Materno</span>
+                            <input type="text" class="form-control" id="input-apellido2" value="<?php echo $rows["apellido2"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-carrera">Carrera</span>
-                            <input type="text" class="form-control" id="input-carrera" value="sistemas">
+                            <input type="text" class="form-control" id="input-carrera" value="<?php echo $rows["carrera"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-correo">Correo</span>
-                            <input type="text" class="form-control" id="input-correo" value="correo@example.com">
+                            <input type="text" class="form-control" id="input-correo" value="<?php echo $rows["correo"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-telefono">Telefono</span>
-                            <input type="text" class="form-control" id="input-telefono" value="951xxxxxxx">
+                            <input type="text" class="form-control" id="input-telefono" value="<?php echo $rows["numero_telefonico"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-telefono2">Telefono Emergencia</span>
-                            <input type="text" class="form-control" id="input-telefono2" value="951xxxxxxx">
+                            <input type="text" class="form-control" id="input-telefono2" value="<?php echo $rows["numero_emergencia"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-direccion">Dirección</span>
-                            <textarea class="form-control" id="input-direccion">Dirección</textarea>
+                            <textarea class="form-control" id="input-direccion"><?php echo $rows["domicilio"]?></textarea>
                         </div>
                         <div class="input-group mb-3">
                             <input type="file" class="form-control" id="input-img">
