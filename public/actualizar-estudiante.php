@@ -36,6 +36,13 @@
 
     <!--  BEGIN NAVBAR  -->
     <?php include "navbar.php" ?>
+    <?php 
+                        include ("../php/con_db.php");
+                        $usuario=$_GET['usuario'];  
+                        $consulta = "SELECT * FROM estudiante WHERE id_usuario='$usuario';";
+                        $resultado = mysqli_query($conex,$consulta);
+                        $rows = mysqli_fetch_assoc($resultado);
+                    ?>
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -100,13 +107,7 @@
             <div class="row justify-content-center m-3">
                 <div class="card col-12 col-md-11 col-lg-11">
                     <h2 class="m-2 card-title">Actualización de datos</h2>
-                    <?php 
-                        include ("../php/con_db.php");
-                        $usuario=$_GET['usuario'];  
-                        $consulta = "SELECT * FROM estudiante WHERE id_usuario='$usuario';";
-                        $resultado = mysqli_query($conex,$consulta);
-                        $rows = mysqli_fetch_assoc($resultado);
-                    ?>
+                  
                     <form action="../php/actualizar-estudiante.php" method="post">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-nombre">Nombre</span>
