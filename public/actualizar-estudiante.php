@@ -131,11 +131,11 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Telefono</span>
-                            <input type="text" class="form-control" name="input-telefono" value="<?php echo $rows["numero_telefonico"]?>">
+                            <input type="tel" class="form-control" name="input-telefono" value="<?php echo $rows["numero_telefonico"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Telefono Emergencia</span>
-                            <input type="text" class="form-control" name="input-telefono2" value="<?php echo $rows["numero_emergencia"]?>">
+                            <input type="tel" class="form-control" name="input-telefono2" value="<?php echo $rows["numero_emergencia"]?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Dirección</span>

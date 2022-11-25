@@ -2,38 +2,44 @@
     include ("con_db.php");
     $usuario=$_GET['usuario']; 
 
-    $nombre = $_POST["input-nombre"];
-	$apellido1 = $_POST["input-apellido1"];
-	$apellido2 = $_POST["input-apellido2"];
-	$carrera = $_POST["input-carrera"];
-	$correo = $_POST["input-correo"];
-	$telefono = $_POST["input-telefono"];
-	$telefono2 = $_POST["input-telefono2"];
-	$domicilio = $_POST["input-direccion"];
+    $datos = array();
+    $names = array("nombre", "apellido1", "apellido2", "carrera", "correo", "numero_telefonico", "numero_emergencia", "domicilio","foto");
 
-    $consulta = "SELECT * FROM estudiante WHERE id_usuario='$usuario';";
+    array_push($datos,$_POST["input-nombre"]);
+    array_push($datos,$_POST["input-apellido1"]);
+    array_push($datos,$_POST["input-apellido2"]);
+    array_push($datos,$_POST["input-carrera"]);
+    array_push($datos,$_POST["input-correo"]);
+    array_push($datos,$_POST["input-telefono"]);
+    array_push($datos,$_POST["input-telefono2"]);
+    array_push($datos,$_POST["input-direccion"]);
+    array_push($datos,$_POST["input-img"]);
+
+    $consulta = "SELECT nombre, apellido1, apellido2, carrera, correo, numero_telefonico, numero_emergencia, domicilio, foto FROM estudiante WHERE id_usuario='$usuario';";
     $resultado = mysqli_query($conex,$consulta);
-    $rows = mysqli_fetch_assoc($resultado);
-
-    echo "correcto xd";
+    $rows = mysqli_fetch_array($resultado);
 
     $query = "UPDATE `estudiante` SET ";
 
-    if ($rows["nombre"]!=$nombre) {$query = $query . "`nombre`='$nombre', ";}
-    if ($rows["apellido1"]!=$apellido1) {$query = $query . "`apellido1`='$apellido1', ";}
-    if ($rows["apellido2"]!=$apellido2) {$query = $query . "`apellido2`='$apellido2', ";}
-    if ($rows["carrera"]!=$carrera) {$query = $query . "`carrera`='$carrera', ";}
-    if ($rows["correo"]!=$correo) {$query = $query . "`correo`='$correo', ";}
-    if ($rows["numero_telefonico"]!=$telefono) {$query = $query . "`numero_telefonico`='$telefono', ";}
-    if ($rows["numero_emergencia"]!=$telefono2) {$query = $query . "`numero_emergencia`='$telefono2', ";}
-    if ($rows["domicilio"]!=$domicilio) {$query = $query . "`domicilio`='$domicilio' ";}
+    $c = 0;
+
+    for ($x = 0; $x < 9; $x++) {
+        if ($rows[$x] != $datos[$x]) {
+            if ($c != 0) {
+                $query = $query . ",";
+            }
+            $query = $query . " $names[$x] = '$datos[$x]'";
+            $c++;
+        }
+    }
 
     $query = $query . " WHERE `id_usuario`='$usuario'";
 
-    echo "";
-    echo $query;
+    //echo "";
+    //echo $query;
 
     if ($conex->query($query) === TRUE) {
+        header("location: ../public/inicio-estudiante.php?usuario=$usuario");
         echo "Registro actualizado con éxito";
     } else {
         echo "Error al actualizar registro: ";
