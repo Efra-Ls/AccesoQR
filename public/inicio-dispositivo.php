@@ -121,7 +121,7 @@
 
 
         <?php
-            date_default_timezone_set('UTC');
+            date_default_timezone_set('America/Mexico_City');
 
         ?>
         <h3>Fecha y hora de registro:</h3>
