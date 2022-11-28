@@ -46,7 +46,7 @@
                                     <p>Ingresa tu usuario y contraseña para acceder</p>
                                     
                                 </div>
-                                <form method="post">
+                                <form method="post" action="../php/acceder-cuenta.php">
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Usuario</label>
@@ -66,9 +66,7 @@
                                     </div>
                                 </div>
                             </form> 
-                            <?php 
-                                include("../php/acceder-cuenta.php");
-                            ?>                                                                               
+                                                                                                       
                             </div>                           
                         </div>
                     </div>

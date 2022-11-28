@@ -15,7 +15,7 @@
     <link href="../layouts/vertical-dark-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
     <link href="../layouts/vertical-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- BEGIN PAGE LEVEL STYLES -->
 
     <link href="../src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css">
@@ -31,11 +31,11 @@
     var sonido = new Audio();
     sonido.src="beep-07a.mp3";
 </script>
-
 <script type = "text/javascript">
         function ConfirmRegistro()
         {
             var respuesta = confirm("Se registro de manera correcta");
+            
             if(respuesta == true)
             {
                 return true;
@@ -160,26 +160,21 @@
 
             scanner.addListener('scan', function(respuesta){
                 sonido.play();
-                console.log("CONTENIDO: "+ respuesta)
+                
                 ConfirmRegistro();
                 var matri=respuesta;
-                window.location.href = window.location.href + "?matri=" + matri; 
-            })
-</script>
-
-<?php
-
-            if (isset($_GET["matri"])) {
-                $matricula=$_GET["matri"];  
-                $fecha=date('y/m/d');      
-                $hora = date('h:i:s');   
-                $insertar = "INSERT INTO registro(matricula,dispositivio,fecha,hora,tipo_registro) 
-                VALUES ('$matricula','$usuario','$fecha','$hora','entrada')";
-                $resultado = mysqli_query($conex,$insertar);
+                window.location.href = window.location.href + "&matri=" + matri;
+                //$.post('../php/registrar-hora.php');   
                 
-            }
-                            
-            ?>
+                console.log("CONTENIDO: "+ respuesta)  
+                
+            })
+
+</script>
+<?php 
+                 include("../php/registrar-hora.php");
+                ?>  
+        
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
                 <div class="footer-section f-section-1">
