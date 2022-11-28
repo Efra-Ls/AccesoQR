@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Acceder con codigo QR  </title>
+    <title> Escanear el Codigo QR </title>
     <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon2.ico"/>
     <link href="../layouts/vertical-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
     <link href="../layouts/vertical-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
@@ -46,6 +46,7 @@
             }
         }    
     </script>
+
 <body class="layout-boxed">
     
     <!-- BEGIN LOADER -->
@@ -72,12 +73,12 @@
                 <div class="navbar-nav theme-brand flex-row  text-center">
                     <div class="nav-logo">
                         <div class="nav-item theme-logo">
-                            <a href="./inicio-dispositivo.php">
+                            <a href="./inicio-estudiante.php">
                                 <img src="../src/assets/img/logop.svg" class="" alt="logo">
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./inicio-dispositivo.php" class="nav-link"> Acceso ITO </a>
+                            <a href="./inicio-estudiante.php" class="nav-link"> Acceso ITO </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -89,19 +90,17 @@
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">                    
 
-                    <li class="menu active">
-                        <a href="./inicio-dispositivo.php" aria-expanded="false" class="dropdown-toggle">
+                <!-- En esta parte esta el menu-->
+                
+                    <li class="menu">
+                        <a href="./mostrar-registros.php" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-plus"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
-                                <span>Escanear codigo</span>
+                                <span>Registros</span>
                             </div>
                         </a>
                     </li>
-
-
-
-                    
-                    
+         
                 </ul>
                 
             </nav>
@@ -111,10 +110,10 @@
         
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            
 
 
-
+        
+            <!--  BEGIN FOOTER  -->
         <h1>
         <div align='center'>    Escanear el Código QR
         </h1>
@@ -162,25 +161,9 @@
                 sonido.play();
                 console.log("CONTENIDO: "+ respuesta)
                 ConfirmRegistro();
-                var matri=respuesta;
-                window.location.href = window.location.href + "?matri=" + matri; 
             })
 </script>
 
-<?php
-
-            if (isset($_GET["matri"])) {
-                $matricula=$_GET["matri"];  
-                $fecha=date('y/m/d');      
-                $hora = date('h:i:s');   
-                $insertar = "INSERT INTO registro(matricula,dispositivio,fecha,hora,tipo_registro) 
-                VALUES ('$matricula','$usuario','$fecha','$hora','entrada')";
-                $resultado = mysqli_query($conex,$insertar);
-                
-            }
-                            
-            ?>
-            <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper mt-0">
                 <div class="footer-section f-section-1">
                     <p class="">Copyright © <span class="dynamic-year">2022</span> <a target="_blank" href="https://designreset.com/cork-admin/">DesignReset</a>, All rights reserved.</p>

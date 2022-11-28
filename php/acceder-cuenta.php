@@ -1,10 +1,9 @@
 <?php
-include("con_db.php");
-        $usuario =$_POST['usuario'];
-	    $contrasenia = $_POST['contrasenia'];   
-		$consulta="SELECT * FROM usuario";
-            
+include("con_db.php");                    
 	    if (isset($_POST['entrar'])) {
+			$usuario =$_POST['usuario'];
+	    	$contrasenia = $_POST['contrasenia'];   
+			$consulta="SELECT * FROM usuario";
 			$resultado = mysqli_query($conex,$consulta);  
 
 			foreach($resultado as $resultad) {
@@ -13,7 +12,7 @@ include("con_db.php");
 					header("location: ../public/inicio-estudiante.php?usuario=$usuario");
 					return;
 				}else if($resultad['nombre_usuario']==$usuario && $resultad['contrasenia']==$contrasenia && $resultad['tipo']=='dispositivo'){
-					header("location: ../public/inicio-dispositivo.php");
+					header("location: ../public/inicio-dispositivo.php?usuario=$usuario");
 					return;
 				}else if($resultad['nombre_usuario']==$usuario && $resultad['contrasenia']==$contrasenia && $resultad['tipo']=='avanzado'){
 					header("location: ../public/mostrar-registros.php");
